@@ -9,7 +9,9 @@
 
          class WordGuessingGame
         {
-            static string[] words = { "apple", "banana", "cherry", "date", "elderberry", "pineapple", "raspberry", "pear" };
+            static string[] wordsEasy = { "apple", "date", "pear" };
+            static string[] wordsNormal = { "banana", "cherry"};
+                static string[] wordsHard = { "elderberry", "pineapple", "raspberry"};
             static Random random = new Random();
             static void Main(string[] args)
             {
@@ -24,7 +26,20 @@
 
                     if (choice == "1")
                     {
-                        PlayGame();
+                        Console.WriteLine("Choose difficulty: 1. Easy\n2. Normal\n3.Hard");
+                        int difficultyChoice = Convert.ToInt32(Console.ReadLine());
+                        switch(difficultyChoice)
+                        {
+                            case 1:
+                                PlayGameEasy();
+                                    break;
+                            case 2:
+                                PlayGameNormal();
+                                break;
+                            case 3:
+                                PlayGameHard();
+                                break;
+                        }
                     }
                     else if (choice == "2")
                     {
@@ -37,10 +52,10 @@
                 }
             }
 
-            static void PlayGame()
+            static void PlayGameEasy()
             {
                 char exit = '!';
-                string wordToGuess = words[random.Next(words.Length)];
+                string wordToGuess = wordsEasy[random.Next(wordsEasy.Length)];
                 char[] guessedWord = new char[wordToGuess.Length];
                 for (int i = 0; i < guessedWord.Length; i++)
                 {
@@ -83,6 +98,106 @@
                         return;
                     }
                     
+                }
+
+                Console.WriteLine($"Game over! The word was: {wordToGuess}");
+            }
+            static void PlayGameNormal()
+            {
+                char exit = '!';
+                string wordToGuess = wordsNormal[random.Next(wordsNormal.Length)];
+                char[] guessedWord = new char[wordToGuess.Length];
+                for (int i = 0; i < guessedWord.Length; i++)
+                {
+                    guessedWord[i] = '_';
+                }
+
+                int attemptsLeft = 6;
+
+                while (attemptsLeft > 0)
+                {
+                    Console.WriteLine($"\nWord: {new string(guessedWord)}");
+                    Console.WriteLine($"Attempts left: {attemptsLeft}");
+                    Console.Write("Guess a letter: ");
+                    Console.WriteLine("Vill du ge upp tryck '!'");
+
+                    char guess = Console.ReadLine().ToLower()[0];
+                    bool correctGuess = false;
+
+                    for (int i = 0; i < wordToGuess.Length; i++)
+                    {
+                        if (wordToGuess[i] == guess)
+                        {
+                            guessedWord[i] = guess;
+                            correctGuess = true;
+                        }
+                    }
+                    if (guess == exit)
+                    {
+                        return;
+                    }
+                    else if (!correctGuess)
+                    {
+                        attemptsLeft--;
+                        Console.WriteLine("Incorrect guess!");
+                    }
+
+                    if (new string(guessedWord) == wordToGuess)
+                    {
+                        Console.WriteLine($"Congratulations! You guessed the word: {wordToGuess}");
+                        return;
+                    }
+
+                }
+
+                Console.WriteLine($"Game over! The word was: {wordToGuess}");
+            }
+            static void PlayGameHard()
+            {
+                char exit = '!';
+                string wordToGuess = wordsHard[random.Next(wordsHard.Length)];
+                char[] guessedWord = new char[wordToGuess.Length];
+                for (int i = 0; i < guessedWord.Length; i++)
+                {
+                    guessedWord[i] = '_';
+                }
+
+                int attemptsLeft = 3;
+
+                while (attemptsLeft > 0)
+                {
+                    Console.WriteLine($"\nWord: {new string(guessedWord)}");
+                    Console.WriteLine($"Attempts left: {attemptsLeft}");
+                    Console.Write("Guess a letter: ");
+                    Console.WriteLine("Vill du ge upp tryck '!'");
+
+                    char guess = Console.ReadLine().ToLower()[0];
+                    bool correctGuess = false;
+
+                    for (int i = 0; i < wordToGuess.Length; i++)
+                    {
+                        if (wordToGuess[i] == guess)
+                        {
+                            guessedWord[i] = guess;
+                            correctGuess = true;
+                        }
+                    }
+                    if (guess == exit)
+                    {
+                        return;
+                    }
+                    else if (!correctGuess)
+                    {
+                        attemptsLeft--;
+                        Console.WriteLine("Incorrect guess!");
+                    }
+
+                    if (new string(guessedWord) == wordToGuess)
+                    {
+                        Console.WriteLine($"Congratulations! You guessed the word: {wordToGuess}");
+                        return;
+                    }
+
                 }
 
                 Console.WriteLine($"Game over! The word was: {wordToGuess}");
