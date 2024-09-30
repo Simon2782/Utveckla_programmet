@@ -4,14 +4,11 @@
     {
         
         
-            
-          
-
          class WordGuessingGame
-        {
-            static string[] wordsEasy = { "apple", "date", "pear" };
-            static string[] wordsNormal = { "banana", "cherry"};
-                static string[] wordsHard = { "elderberry", "pineapple", "raspberry"};
+         {
+            static string[] wordsEasy = { "apple", "date", "pear", "banana", "cherry", "elderberry", "pineapple", "raspberry" };
+            static string[] wordsNormal = { "toyota", "volvo", "mercedes", "lexus", "fiat", "ferrari"};
+            static string[] wordsHard = { "fisherman", "scientist", "seismologist", "otolaryngolist", "amalgamator"};
             static Random random = new Random();
             static void Main(string[] args)
             {
@@ -84,7 +81,14 @@
                     }
                     if (guess == exit)
                     {
+                        Console.WriteLine($"The right word was { wordToGuess }");
                         return;
+                    }
+                    if (attemptsLeft == 3) 
+                    {
+                        attemptsLeft--;
+                        Console.WriteLine("Hint its a fruit or berry");
+                    
                     }
                     else if (!correctGuess)
                     {
@@ -134,7 +138,14 @@
                     }
                     if (guess == exit)
                     {
+                        Console.WriteLine($"The right word was {wordToGuess}");
                         return;
+                    }
+                    if (attemptsLeft == 3)
+                    {
+                        attemptsLeft--;
+                        Console.WriteLine("Hint its a fruit or car brand");
+
                     }
                     else if (!correctGuess)
                     {
@@ -184,6 +195,7 @@
                     }
                     if (guess == exit)
                     {
+                        Console.WriteLine($"The right word was {wordToGuess}");
                         return;
                     }
                     else if (!correctGuess)
