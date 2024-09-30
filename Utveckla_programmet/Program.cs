@@ -59,7 +59,16 @@
                     guessedWord[i] = '_';
                 }
 
+                List<string> hangMan = new List<string>();
+                hangMan.Add(" +---+\r\n  |   |\r\n      |\r\n      |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n      |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n  |   |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|   |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n /    |\r\n      |\r\n=========");
+                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n / \\  |\r\n      |\r\n=========");
                 int attemptsLeft = 6;
+                Console.WriteLine(hangMan[7 - attemptsLeft]);
 
                 while (attemptsLeft > 0)
                 {
@@ -67,6 +76,7 @@
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
                     Console.WriteLine("Vill du ge upp tryck '!'");
+
 
                     char guess = Console.ReadLine().ToLower()[0];
                     bool correctGuess = false;
@@ -173,7 +183,7 @@
                     guessedWord[i] = '_';
                 }
 
-                int attemptsLeft = 3;
+                int attemptsLeft = 7;
 
                 while (attemptsLeft > 0)
                 {
@@ -181,7 +191,6 @@
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
                     Console.WriteLine("Vill du ge upp tryck '!'");
-
                     char guess = Console.ReadLine().ToLower()[0];
                     bool correctGuess = false;
 
@@ -193,6 +202,7 @@
                             correctGuess = true;
                         }
                     }
+                    
                     if (guess == exit)
                     {
                         Console.WriteLine($"The right word was {wordToGuess}");
