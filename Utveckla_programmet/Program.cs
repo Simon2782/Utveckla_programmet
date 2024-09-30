@@ -39,7 +39,7 @@
 
             static void PlayGame()
             {
-            int exit = 3;
+                char exit = '!';
                 string wordToGuess = words[random.Next(words.Length)];
                 char[] guessedWord = new char[wordToGuess.Length];
                 for (int i = 0; i < guessedWord.Length; i++)
@@ -54,7 +54,7 @@
                     Console.WriteLine($"\nWord: {new string(guessedWord)}");
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
-                    Console.WriteLine("Vill du ge upp tryck 3.");
+                    Console.WriteLine("Vill du ge upp tryck '!'");
 
                     char guess = Console.ReadLine().ToLower()[0];
                     bool correctGuess = false;
@@ -67,8 +67,11 @@
                             correctGuess = true;
                         }
                     }
-
-                    if (!correctGuess)
+                    if (guess == exit)
+                    {
+                        return;
+                    }
+                    else if (!correctGuess)
                     {
                         attemptsLeft--;
                         Console.WriteLine("Incorrect guess!");
@@ -79,10 +82,7 @@
                         Console.WriteLine($"Congratulations! You guessed the word: {wordToGuess}");
                         return;
                     }
-                    if (guess == exit)
-                    {
-                      
-                    }
+                    
                 }
 
                 Console.WriteLine($"Game over! The word was: {wordToGuess}");
