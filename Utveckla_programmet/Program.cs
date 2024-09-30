@@ -63,15 +63,14 @@
                 }
 
                 List<string> hangMan = new List<string>();
-                hangMan.Add(" +---+\r\n  |   |\r\n      |\r\n      |\r\n      |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n      |\r\n      |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n  |   |\r\n      |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|   |\r\n      |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n      |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n /    |\r\n      |\r\n=========");
-                hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n / \\  |\r\n      |\r\n=========");
-                int attemptsLeft = 6;
-                Console.WriteLine(hangMan[7 - attemptsLeft]);
+                hangMan.Add("  +---+\r\n  |   |\r\n      |\r\n      |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n      |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n  |   |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n /|   |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n      |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n /    |\r\n      |\r\n=========");
+                hangMan.Add("  +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n / \\  |\r\n      |\r\n=========");
+                int attemptsLeft = 7;
 
                 while (attemptsLeft > 0)
                 {
@@ -98,6 +97,7 @@
                     }
                     else if (!correctGuess)
                     {
+                        Console.WriteLine(hangMan[7 - attemptsLeft]);
                         attemptsLeft--;
                         Console.WriteLine("Incorrect guess!");
                     }
