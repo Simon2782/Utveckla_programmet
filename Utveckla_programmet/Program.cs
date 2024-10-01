@@ -61,6 +61,7 @@
                 }
 
                 List<string> hangMan = new List<string>();
+
                 hangMan.Add(" +---+\r\n  |   |\r\n      |\r\n      |\r\n      |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n      |\r\n      |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n  |   |\r\n      |\r\n      |\r\n=========");
@@ -68,6 +69,7 @@
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n      |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n /    |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n / \\  |\r\n      |\r\n=========");
+
                 int attemptsLeft = 7;
 
                 while (attemptsLeft > 0)
