@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        
+                    // Simon, Tim och Leon
         
          class WordGuessingGame
          {
@@ -14,6 +14,7 @@
             {
                 while (true)
                 {
+                    Console.Clear();
                     Console.WriteLine("\nWord Guessing Game");
                     Console.WriteLine("1. Play Game");
                     Console.WriteLine("2. Exit");
