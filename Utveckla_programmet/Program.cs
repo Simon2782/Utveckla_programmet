@@ -3,7 +3,7 @@
     internal class Program
     {
                     // Simon, Tim och Leon
-        
+        // Hej
          class WordGuessingGame
          {
             static string[] wordsEasy = { "apple", "date", "pear", "banana", "cherry", "elderberry", "pineapple", "raspberry" };
