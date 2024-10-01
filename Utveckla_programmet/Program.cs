@@ -24,7 +24,7 @@
 
                     if (choice == "1")
                     {
-                        Console.WriteLine("Choose difficulty: 1. Easy\n2. Normal\n3.Hard");
+                        Console.WriteLine("Choose difficulty:  \n1. Easy\n2. Normal\n3.Hard");
                         int difficultyChoice = Convert.ToInt32(Console.ReadLine());
                         switch(difficultyChoice)
                         {
@@ -68,15 +68,14 @@
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n      |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n /    |\r\n      |\r\n=========");
                 hangMan.Add(" +---+\r\n  |   |\r\n  O   |\r\n /|\\  |\r\n / \\  |\r\n      |\r\n=========");
-                int attemptsLeft = 6;
-                Console.WriteLine(hangMan[7 - attemptsLeft]);
+                int attemptsLeft = 7;
 
                 while (attemptsLeft > 0)
                 {
                     Console.WriteLine($"\nWord: {new string(guessedWord)}");
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
-                    Console.WriteLine("Vill du ge upp tryck '!'");
+                    Console.WriteLine("Wanna give up, type '!'");
 
 
                     char guess = Console.ReadLine().ToLower()[0];
@@ -93,18 +92,22 @@
                     if (guess == exit)
                     {
                         Console.WriteLine($"The right word was { wordToGuess }");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
                         return;
                     }
                     if (attemptsLeft == 3) 
                     {
                         attemptsLeft--;
-                        Console.WriteLine("Hint its a fruit or berry");
+                        Console.WriteLine("\nHint its a fruit or berry");
                     
                     }
                     else if (!correctGuess)
                     {
+                        Console.WriteLine(hangMan[7 - attemptsLeft]);
                         attemptsLeft--;
                         Console.WriteLine("Incorrect guess!");
+
                     }
 
                     if (new string(guessedWord) == wordToGuess)
@@ -116,6 +119,7 @@
                 }
 
                 Console.WriteLine($"Game over! The word was: {wordToGuess}");
+                Console.ReadKey();
             }
             static void PlayGameNormal()
             {
@@ -134,7 +138,7 @@
                     Console.WriteLine($"\nWord: {new string(guessedWord)}");
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
-                    Console.WriteLine("Vill du ge upp tryck '!'");
+                    Console.WriteLine("Wanna give up, type '!'");
 
                     char guess = Console.ReadLine().ToLower()[0];
                     bool correctGuess = false;
@@ -150,12 +154,14 @@
                     if (guess == exit)
                     {
                         Console.WriteLine($"The right word was {wordToGuess}");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
                         return;
                     }
                     if (attemptsLeft == 3)
                     {
                         attemptsLeft--;
-                        Console.WriteLine("Hint its a fruit or car brand");
+                        Console.WriteLine("\nHint its a car brand");
 
                     }
                     else if (!correctGuess)
@@ -173,6 +179,7 @@
                 }
 
                 Console.WriteLine($"Game over! The word was: {wordToGuess}");
+                Console.ReadKey();
             }
             static void PlayGameHard()
             {
@@ -191,7 +198,7 @@
                     Console.WriteLine($"\nWord: {new string(guessedWord)}");
                     Console.WriteLine($"Attempts left: {attemptsLeft}");
                     Console.Write("Guess a letter: ");
-                    Console.WriteLine("Vill du ge upp tryck '!'");
+                    Console.WriteLine("Wanna give up, type '!'");
                     char guess = Console.ReadLine().ToLower()[0];
                     bool correctGuess = false;
 
@@ -207,6 +214,8 @@
                     if (guess == exit)
                     {
                         Console.WriteLine($"The right word was {wordToGuess}");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
                         return;
                     }
                     else if (!correctGuess)
@@ -224,8 +233,9 @@
                 }
 
                 Console.WriteLine($"Game over! The word was: {wordToGuess}");
+                Console.ReadKey();
             }
-        }
+         }
     }
 
 }
